@@ -77,4 +77,36 @@ describe('Glass', () => {
       assert.deepStrictEqual(glass.liquid, ['red']);
     });
   });
+
+  describe('pour', () => {
+    it('should pour to empty glass', () => {
+      const glass1 = new Glass(1, ['red']);
+      const glass2 = new Glass(2, []);
+      glass1.pour(glass2);
+      assert.deepStrictEqual(glass1.liquid, []);
+      assert.deepStrictEqual(glass2.liquid, ['red']);
+    });
+    it('should pour if another glass is not full', () => {
+      const glass1 = new Glass(3, ['red', 'blue']);
+      const glass2 = new Glass(2, ['red']);
+      glass1.pour(glass2);
+      assert.deepStrictEqual(glass1.liquid, ['red']);
+      assert.deepStrictEqual(glass2.liquid, ['red', 'blue']);
+    });
+    it('should not pour if another glass is full', () => {
+      const glass1 = new Glass(3, ['red', 'blue']);
+      const glass2 = new Glass(1, ['red']);
+      glass1.pour(glass2);
+      assert.deepStrictEqual(glass1.liquid, ['red', 'blue']);
+      assert.deepStrictEqual(glass2.liquid, ['red']);
+    });
+
+    it('should not pour from empty glass', () => {
+      const glass1 = new Glass(1, []);
+      const glass2 = new Glass(1, ['red']);
+      glass1.pour(glass2);
+      assert.deepStrictEqual(glass1.liquid, []);
+      assert.deepStrictEqual(glass2.liquid, ['red']);
+    });
+  });
 });

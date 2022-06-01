@@ -1,6 +1,7 @@
 # TO-DO:
 
- - [ ] Glass should pour content.
+ - [ ] Replace isFull with isSpaceAvailable.
+ - [ ] Should check if glass is full and homogeneous.
 
 # CONSIDER:
 
@@ -9,6 +10,7 @@
 
 # DONE:
 
+ - [x] Glass should pour content.
  - [x] Glass should receive content if space is available.
  - [x] Consider different name for content.
  - [x] Implement glass behaviour to tell if all the content is same.

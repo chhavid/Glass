@@ -25,6 +25,13 @@ class Glass {
       this.liquid.push(liquid);
     }
   }
+
+  pour(anotherGlass) {
+    if (!anotherGlass.isFull()) {
+      const liquidBlock = this.liquid.pop();
+      anotherGlass.fill(liquidBlock);
+    }
+  }
 }
 
 exports.Glass = Glass;
