@@ -11,6 +11,10 @@ class Glass {
   isFull() {
     return this.contents.length === this.capacity;
   }
+
+  isEmpty() {
+    return this.contents.length < 1;
+  }
 }
 
 exports.Glass = Glass;

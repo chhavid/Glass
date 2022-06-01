@@ -27,4 +27,19 @@ describe('Glass', () => {
       assert.deepStrictEqual(glass2.isFull(), false);
     });
   });
+
+  describe('isEmpty', () => {
+    it('should return true if glass is empty', () => {
+      const glass1 = new Glass(1, []);
+      assert.deepStrictEqual(glass1.isEmpty(), true);
+      const glass2 = new Glass(4, []);
+      assert.deepStrictEqual(glass2.isEmpty(), true);
+    });
+    it('should return false if glass is not empty', () => {
+      const glass1 = new Glass(1, ['red']);
+      assert.deepStrictEqual(glass1.isEmpty(), false);
+      const glass2 = new Glass(3, ['red', 'blue']);
+      assert.deepStrictEqual(glass2.isEmpty(), false);
+    });
+  });
 });
