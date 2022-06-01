@@ -1,23 +1,29 @@
 class Glass {
-  constructor(capacity, contents) {
+  constructor(capacity, liquid) {
     this.capacity = capacity;
-    this.contents = contents;
+    this.liquid = liquid;
   }
 
   contains() {
-    return this.contents;
+    return this.liquid;
   }
 
   isFull() {
-    return this.contents.length === this.capacity;
+    return this.liquid.length === this.capacity;
   }
 
   isEmpty() {
-    return this.contents.length < 1;
+    return this.liquid.length < 1;
   }
 
   isHomogeneous() {
-    return this.contents.every((content) => this.contents[0] === content);
+    return this.liquid.every((content) => this.liquid[0] === content);
+  }
+
+  fill(liquid) {
+    if (!this.isFull()) {
+      this.liquid.push(liquid);
+    }
   }
 }
 

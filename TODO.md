@@ -1,13 +1,16 @@
-# TO-DO
+# TO-DO:
 
- - [ ] Consider different name for content.
- - [ ] Make Color entity.
- - [ ] Glass should take colors as contents.
- - [ ] Glass should receive content if space is available.
  - [ ] Glass should pour content.
 
-# DONE
+# CONSIDER:
 
+ - [ ] Make Color entity.
+ - [ ] Glass should take colors as contents.
+
+# DONE:
+
+ - [x] Glass should receive content if space is available.
+ - [x] Consider different name for content.
  - [x] Implement glass behaviour to tell if all the content is same.
  - [x] Implement glass behaviour to tell if it is empty.
  - [x] Implement glass behaviour to tell if it is full.

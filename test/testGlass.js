@@ -59,4 +59,22 @@ describe('Glass', () => {
       assert.deepStrictEqual(glass.isHomogeneous(), false);
     });
   });
+
+  describe('fill', () => {
+    it('should add the content to glass.', () => {
+      const glass = new Glass(2, ['red']);
+      glass.fill('blue');
+      assert.deepStrictEqual(glass.liquid, ['red', 'blue']);
+    });
+    it('should add the content to empty glass.', () => {
+      const glass = new Glass(2, []);
+      glass.fill('blue');
+      assert.deepStrictEqual(glass.liquid, ['blue']);
+    });
+    it('should not add the content if glass is full.', () => {
+      const glass = new Glass(1, ['red']);
+      glass.fill('blue');
+      assert.deepStrictEqual(glass.liquid, ['red']);
+    });
+  });
 });
