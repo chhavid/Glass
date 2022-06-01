@@ -16,8 +16,8 @@ class Glass {
     return this.liquid;
   }
 
-  isFull() {
-    return this.liquid.length === this.capacity;
+  isUnfilled() {
+    return this.liquid.length < this.capacity;
   }
 
   isEmpty() {
@@ -29,13 +29,13 @@ class Glass {
   }
 
   fill(liquid) {
-    if (!this.isFull()) {
+    if (this.isUnfilled()) {
       this.liquid.push(liquid);
     }
   }
 
-  pour(anotherGlass) {
-    if (!anotherGlass.isFull()) {
+  pourInto(anotherGlass) {
+    if (anotherGlass.isUnfilled()) {
       const liquidBlock = this.liquid.pop();
       anotherGlass.fill(liquidBlock);
     }

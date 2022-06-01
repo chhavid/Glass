@@ -36,50 +36,50 @@ describe('Glass', () => {
     });
   });
 
-  describe('isFull', () => {
-    it('should return true if glass is full', () => {
+  describe('isUnfilled', () => {
+    it('should return false if glass is full', () => {
       const glass1 = new Glass(1, ['red']);
-      assert.deepStrictEqual(glass1.isFull(), true);
+      assert.strictEqual(glass1.isUnfilled(), false);
       const glass2 = new Glass(2, ['red', 'red']);
-      assert.deepStrictEqual(glass2.isFull(), true);
+      assert.strictEqual(glass2.isUnfilled(), false);
     });
-    it('should return false if glass is not full', () => {
+    it('should return true if glass is not full', () => {
       const glass1 = new Glass(2, ['red']);
-      assert.deepStrictEqual(glass1.isFull(), false);
+      assert.strictEqual(glass1.isUnfilled(), true);
       const glass2 = new Glass(3, ['red', 'blue']);
-      assert.deepStrictEqual(glass2.isFull(), false);
+      assert.strictEqual(glass2.isUnfilled(), true);
     });
   });
 
   describe('isEmpty', () => {
     it('should return true if glass is empty', () => {
       const glass1 = new Glass(1, []);
-      assert.deepStrictEqual(glass1.isEmpty(), true);
+      assert.strictEqual(glass1.isEmpty(), true);
       const glass2 = new Glass(4, []);
-      assert.deepStrictEqual(glass2.isEmpty(), true);
+      assert.strictEqual(glass2.isEmpty(), true);
     });
     it('should return false if glass is not empty', () => {
       const glass1 = new Glass(1, ['red']);
-      assert.deepStrictEqual(glass1.isEmpty(), false);
+      assert.strictEqual(glass1.isEmpty(), false);
       const glass2 = new Glass(3, ['red', 'blue']);
-      assert.deepStrictEqual(glass2.isEmpty(), false);
+      assert.strictEqual(glass2.isEmpty(), false);
     });
   });
 
   describe('isHomogeneous', () => {
     it('should return true if glass is homogeneous', () => {
       const glass1 = new Glass(2, ['red', 'red']);
-      assert.deepStrictEqual(glass1.isHomogeneous(), true);
+      assert.strictEqual(glass1.isHomogeneous(), true);
       const glass2 = new Glass(4, ['blue']);
-      assert.deepStrictEqual(glass2.isHomogeneous(), true);
+      assert.strictEqual(glass2.isHomogeneous(), true);
     });
     it('should return true if glass is empty', () => {
       const glass = new Glass(2, []);
-      assert.deepStrictEqual(glass.isHomogeneous(), true);
+      assert.strictEqual(glass.isHomogeneous(), true);
     });
     it('should return false if glass is heterogenous', () => {
       const glass = new Glass(2, ['red', 'blue']);
-      assert.deepStrictEqual(glass.isHomogeneous(), false);
+      assert.strictEqual(glass.isHomogeneous(), false);
     });
   });
 
@@ -101,25 +101,25 @@ describe('Glass', () => {
     });
   });
 
-  describe('pour', () => {
-    it('should pour to empty glass', () => {
+  describe('pourInto', () => {
+    it('should pour into empty glass', () => {
       const glass1 = new Glass(1, ['red']);
       const glass2 = new Glass(2, []);
-      glass1.pour(glass2);
+      glass1.pourInto(glass2);
       assert.deepStrictEqual(glass1.liquid, []);
       assert.deepStrictEqual(glass2.liquid, ['red']);
     });
     it('should pour if another glass is not full', () => {
       const glass1 = new Glass(3, ['red', 'blue']);
       const glass2 = new Glass(2, ['red']);
-      glass1.pour(glass2);
+      glass1.pourInto(glass2);
       assert.deepStrictEqual(glass1.liquid, ['red']);
       assert.deepStrictEqual(glass2.liquid, ['red', 'blue']);
     });
     it('should not pour if another glass is full', () => {
       const glass1 = new Glass(3, ['red', 'blue']);
       const glass2 = new Glass(1, ['red']);
-      glass1.pour(glass2);
+      glass1.pourInto(glass2);
       assert.deepStrictEqual(glass1.liquid, ['red', 'blue']);
       assert.deepStrictEqual(glass2.liquid, ['red']);
     });
@@ -127,7 +127,7 @@ describe('Glass', () => {
     it('should not pour from empty glass', () => {
       const glass1 = new Glass(1, []);
       const glass2 = new Glass(1, ['red']);
-      glass1.pour(glass2);
+      glass1.pourInto(glass2);
       assert.deepStrictEqual(glass1.liquid, []);
       assert.deepStrictEqual(glass2.liquid, ['red']);
     });
