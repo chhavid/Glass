@@ -15,6 +15,10 @@ class Glass {
   isEmpty() {
     return this.contents.length < 1;
   }
+
+  isHomogeneous() {
+    return this.contents.every((content) => this.contents[0] === content);
+  }
 }
 
 exports.Glass = Glass;

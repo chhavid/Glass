@@ -42,4 +42,21 @@ describe('Glass', () => {
       assert.deepStrictEqual(glass2.isEmpty(), false);
     });
   });
+
+  describe('isHomogeneous', () => {
+    it('should return true if glass is homogeneous', () => {
+      const glass1 = new Glass(2, ['red', 'red']);
+      assert.deepStrictEqual(glass1.isHomogeneous(), true);
+      const glass2 = new Glass(4, ['blue']);
+      assert.deepStrictEqual(glass2.isHomogeneous(), true);
+    });
+    it('should return true if glass is empty', () => {
+      const glass = new Glass(2, []);
+      assert.deepStrictEqual(glass.isHomogeneous(), true);
+    });
+    it('should return false if glass is heterogenous', () => {
+      const glass = new Glass(2, ['red', 'blue']);
+      assert.deepStrictEqual(glass.isHomogeneous(), false);
+    });
+  });
 });
