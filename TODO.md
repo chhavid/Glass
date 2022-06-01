@@ -1,15 +1,20 @@
 # TO-DO:
 
+ - [ ] Fix test cases and use equals.
+ - [ ] Make properties private.
  - [ ] Replace isFull with isSpaceAvailable.
+ - [ ] Replace pour to pourInto.
  - [ ] Should check if glass is full and homogeneous.
 
 # CONSIDER:
 
  - [ ] Make Color entity.
  - [ ] Glass should take colors as contents.
+ - [ ] Renaming liquid to liquidBlocks.
 
 # DONE:
 
+ - [x] Make equals.
  - [x] Glass should pour content.
  - [x] Glass should receive content if space is available.
  - [x] Consider different name for content.

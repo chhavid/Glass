@@ -1,5 +1,13 @@
+const areArraysEqual = (array1, array2) => {
+  if (array1.length !== array2.length) {
+    return false;
+  }
+  return array1.every((element, index) =>
+    element === array2[index]);
+};
+
 class Glass {
-  constructor(capacity, liquid) {
+  constructor(capacity, liquid = []) {
     this.capacity = capacity;
     this.liquid = liquid;
   }
@@ -31,6 +39,12 @@ class Glass {
       const liquidBlock = this.liquid.pop();
       anotherGlass.fill(liquidBlock);
     }
+  }
+
+  equals(anotherGlass) {
+    return anotherGlass instanceof Glass &&
+      this.capacity === anotherGlass.capacity &&
+      areArraysEqual(this.liquid, anotherGlass.liquid);
   }
 }
 

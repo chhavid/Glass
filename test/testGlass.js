@@ -2,6 +2,29 @@ const { Glass } = require('../src/glass');
 const assert = require('assert');
 
 describe('Glass', () => {
+  describe('equals', () => {
+    it('should equate same glasses', () => {
+      const glass1 = new Glass(2, ['red']);
+      const glass2 = new Glass(2, ['red']);
+      assert.ok(glass1.equals(glass2));
+    });
+    it('should return false if capacity is different', () => {
+      const glass1 = new Glass(2, ['red']);
+      const glass2 = new Glass(3, ['red']);
+      assert.strictEqual(glass1.equals(glass2), false);
+    });
+    it('should return false if content is different', () => {
+      const glass1 = new Glass(2, ['red']);
+      const glass2 = new Glass(2, ['red', 'blue']);
+      assert.strictEqual(glass1.equals(glass2), false);
+    });
+    it('should return false if instance is different', () => {
+      const glass1 = new Glass(2, ['red']);
+      const glass2 = { capacity: 2, liquid: ['red'] };
+      assert.strictEqual(glass1.equals(glass2), false);
+    });
+  });
+
   describe('contains', () => {
     it('should return the contents of glass', () => {
       const glass = new Glass(2, ['red']);
