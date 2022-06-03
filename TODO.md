@@ -1,7 +1,5 @@
 # TO-DO:
 
- - [ ] Fix test cases and use equals.
- - [ ] Make properties private.
  - [ ] Should check if glass is full and homogeneous.
 
 # CONSIDER:
@@ -12,6 +10,8 @@
 
 # DONE:
 
+ - [x] Make properties private.
+ - [x] Fix test cases and use equals.
  - [x] Replace isFull with isUnfilled.
  - [x] Replace pour to pourInto.
  - [x] Make equals.

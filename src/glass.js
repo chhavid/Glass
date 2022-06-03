@@ -7,44 +7,46 @@ const areArraysEqual = (array1, array2) => {
 };
 
 class Glass {
+  #capacity;
+  #liquid;
   constructor(capacity, liquid = []) {
-    this.capacity = capacity;
-    this.liquid = liquid;
+    this.#capacity = capacity;
+    this.#liquid = liquid;
   }
 
   contains() {
-    return this.liquid;
+    return this.#liquid;
   }
 
   isUnfilled() {
-    return this.liquid.length < this.capacity;
+    return this.#liquid.length < this.#capacity;
   }
 
   isEmpty() {
-    return this.liquid.length < 1;
+    return this.#liquid.length < 1;
   }
 
   isHomogeneous() {
-    return this.liquid.every((content) => this.liquid[0] === content);
+    return this.#liquid.every((content) => this.#liquid[0] === content);
   }
 
   fill(liquid) {
     if (this.isUnfilled()) {
-      this.liquid.push(liquid);
+      this.#liquid.push(liquid);
     }
   }
 
   pourInto(anotherGlass) {
-    if (anotherGlass.isUnfilled()) {
-      const liquidBlock = this.liquid.pop();
+    if (anotherGlass.isUnfilled() && !this.isEmpty()) {
+      const liquidBlock = this.#liquid.pop();
       anotherGlass.fill(liquidBlock);
     }
   }
 
   equals(anotherGlass) {
     return anotherGlass instanceof Glass &&
-      this.capacity === anotherGlass.capacity &&
-      areArraysEqual(this.liquid, anotherGlass.liquid);
+      this.#capacity === anotherGlass.#capacity &&
+      areArraysEqual(this.#liquid, anotherGlass.#liquid);
   }
 }
 
