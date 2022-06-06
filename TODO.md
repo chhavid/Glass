@@ -1,17 +1,18 @@
 # TO-DO:
 
- - [ ] Rename playGame.
  - [ ] Make glasses entity.
- - [ ] Parse the input.
  - [ ] Validate the input.
  - [ ] Change the try catch.
  - [ ] Modify game over condition.
+ - [ ] Separate main in another file.
 
 # CONSIDER:
 
 
 # DONE:
 
+ - [x] Parse the input.
+ - [x] Rename playGame.
  - [x] Exit if game is over.
  - [x] Extract colors into variables.
  - [x] Glass should take colors as contents.

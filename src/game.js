@@ -15,7 +15,7 @@ const initialise = () => {
   return [glass1, glass2, glass3];
 };
 
-const playGame = (from, to, glasses) => {
+const play = (from, to, glasses) => {
   try {
     glasses[from - 1].pourInto(glasses[to - 1]);
   } catch (error) {
@@ -36,7 +36,7 @@ const gameOver = (glasses) => {
 
 const read = (callBack) => {
   process.stdin.on('data', (chunk) => {
-    callBack(...chunk.split('to'));
+    callBack(chunk);
   });
 
   process.stdin.on('end', () => {
@@ -44,10 +44,12 @@ const read = (callBack) => {
   });
 };
 
+const parseInput = (chunk) => chunk.split('to');
+
 const main = () => {
   const glasses = initialise();
   showGlasses(glasses);
-  read((from, to) => playGame(from, to, glasses));
+  read((chunk) => play(...parseInput(chunk), glasses));
 };
 
 main();
