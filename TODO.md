@@ -4,13 +4,13 @@
  - [ ] Validate the input.
  - [ ] Change the try catch.
  - [ ] Modify game over condition.
- - [ ] Separate main in another file.
 
 # CONSIDER:
 
 
 # DONE:
 
+ - [x] Separate main in another file.
  - [x] Parse the input.
  - [x] Rename playGame.
  - [x] Exit if game is over.

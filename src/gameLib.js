@@ -34,22 +34,9 @@ const gameOver = (glasses) => {
   });
 };
 
-const read = (callBack) => {
-  process.stdin.on('data', (chunk) => {
-    callBack(chunk);
-  });
-
-  process.stdin.on('end', () => {
-    console.log('Game ended');
-  });
-};
-
 const parseInput = (chunk) => chunk.split('to');
 
-const main = () => {
-  const glasses = initialise();
-  showGlasses(glasses);
-  read((chunk) => play(...parseInput(chunk), glasses));
-};
-
-main();
+exports.play = play;
+exports.initialise = initialise;
+exports.showGlasses = showGlasses;
+exports.parseInput = parseInput;
