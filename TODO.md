@@ -1,6 +1,6 @@
 # TO-DO:
 
- - [ ] Make glasses entity.
+ - [ ] Add behaviours for glasses.
  - [ ] Validate the input.
  - [ ] Change the try catch.
  - [ ] Modify game over condition.
@@ -10,6 +10,7 @@
 
 # DONE:
 
+ - [x] Make glasses entity.
  - [x] Separate main in another file.
  - [x] Parse the input.
  - [x] Rename playGame.
