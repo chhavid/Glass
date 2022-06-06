@@ -1,4 +1,4 @@
-const { play, initialise, showGlasses, parseInput } =
+const { play, initialise, parseInput } =
   require('./src/gameLib.js');
 
 const read = (callBack) => {
@@ -13,7 +13,7 @@ const read = (callBack) => {
 
 const main = () => {
   const glasses = initialise();
-  showGlasses(glasses);
+  glasses.display();
   read((chunk) => play(...parseInput(chunk), glasses));
 };
 

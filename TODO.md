@@ -1,15 +1,15 @@
 # TO-DO:
 
- - [ ] Add behaviours for glasses.
  - [ ] Validate the input.
  - [ ] Change the try catch.
- - [ ] Modify game over condition.
 
 # CONSIDER:
 
 
 # DONE:
 
+ - [x] Add behaviours for glasses.
+ - [x] Modify game over condition.
  - [x] Make glasses entity.
  - [x] Separate main in another file.
  - [x] Parse the input.

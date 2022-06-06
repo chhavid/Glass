@@ -20,6 +20,20 @@ class Glasses {
     return otherGlasses instanceof Glasses &&
       areGlassesEqual(this.#glasses, otherGlasses.#glasses);
   }
+
+  pour(from, to) {
+    this.#glasses[from].pourInto(this.#glasses[to]);
+  }
+
+  display() {
+    this.#glasses.forEach((glass) => glass.display());
+  }
+
+  areHomogeneous() {
+    return this.#glasses.every((glass) => {
+      return (glass.isEmpty() || !glass.isUnfilled()) && glass.isHomogeneous();
+    });
+  }
 }
 
 exports.Glasses = Glasses;

@@ -1,5 +1,8 @@
-const { Glass } = require('./glass.js');
 const { exit } = require('process');
+
+const { Glass } = require('./glass.js');
+const { Glasses } = require('./glasses.js');
+
 process.stdin.setEncoding('utf8');
 
 const showGlasses = (glasses) => {
@@ -12,26 +15,20 @@ const initialise = () => {
   const glass1 = new Glass(3, [red, red]);
   const glass2 = new Glass(3, [blue, blue, blue]);
   const glass3 = new Glass(3, [red]);
-  return [glass1, glass2, glass3];
+  return new Glasses(glass1, glass2, glass3);
 };
 
 const play = (from, to, glasses) => {
   try {
-    glasses[from - 1].pourInto(glasses[to - 1]);
+    glasses.pour(from - 1, to - 1);
   } catch (error) {
     console.log('invalid input\n');
   }
-  showGlasses(glasses);
-  if (gameOver(glasses)) {
+  glasses.display();
+  if (glasses.areHomogeneous()) {
     console.log('Game over!');
     exit();
   }
-};
-
-const gameOver = (glasses) => {
-  return glasses.every((glass) => {
-    return (glass.isEmpty() || !glass.isUnfilled()) && glass.isHomogeneous();
-  });
 };
 
 const parseInput = (chunk) => chunk.split('to');
