@@ -1,12 +1,20 @@
 # TO-DO:
 
+ - [ ] Rename playGame.
+ - [ ] Make glasses entity.
+ - [ ] Parse the input.
+ - [ ] Validate the input.
+ - [ ] Change the try catch.
+ - [ ] Modify game over condition.
 
 # CONSIDER:
 
- - [ ] Glass should take colors as contents.
 
 # DONE:
 
+ - [x] Exit if game is over.
+ - [x] Extract colors into variables.
+ - [x] Glass should take colors as contents.
  - [x] Take input from user.
  - [x] Make Game.
  - [x] Should check if glass is full and homogeneous.

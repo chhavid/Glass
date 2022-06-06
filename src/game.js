@@ -7,9 +7,11 @@ const showGlasses = (glasses) => {
 };
 
 const initialise = () => {
-  const glass1 = new Glass(3, ['red', 'red']);
-  const glass2 = new Glass(3, ['blue', 'blue', 'blue']);
-  const glass3 = new Glass(3, ['red']);
+  const red = 'red';
+  const blue = 'blue';
+  const glass1 = new Glass(3, [red, red]);
+  const glass2 = new Glass(3, [blue, blue, blue]);
+  const glass3 = new Glass(3, [red]);
   return [glass1, glass2, glass3];
 };
 
@@ -21,7 +23,8 @@ const playGame = (from, to, glasses) => {
   }
   showGlasses(glasses);
   if (gameOver(glasses)) {
-    process.stdin.emit('end');
+    console.log('Game over!');
+    exit();
   }
 };
 
@@ -37,8 +40,7 @@ const read = (callBack) => {
   });
 
   process.stdin.on('end', () => {
-    console.log('Game over!');
-    exit();
+    console.log('Game ended');
   });
 };
 
