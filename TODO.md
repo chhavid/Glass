@@ -1,15 +1,17 @@
 # TO-DO:
 
- - [ ] Should check if glass is full and homogeneous.
 
 # CONSIDER:
 
- - [ ] Make Color entity.
  - [ ] Glass should take colors as contents.
- - [ ] Renaming liquid to liquidBlocks.
 
 # DONE:
 
+ - [x] Take input from user.
+ - [x] Make Game.
+ - [x] Should check if glass is full and homogeneous.
+ - [x] Renaming liquid to liquidBlocks.
+ ~~- [ ] Make Color entity~~
  - [x] Make properties private.
  - [x] Fix test cases and use equals.
  - [x] Replace isFull with isUnfilled.

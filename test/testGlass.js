@@ -107,8 +107,8 @@ describe('Glass', () => {
   describe('pourInto', () => {
     it('should pour into empty glass', () => {
       const glass1 = new Glass(1, ['red']);
-      const expGlass1 = new Glass(1, []);
       const glass2 = new Glass(2, []);
+      const expGlass1 = new Glass(1, []);
       const expGlass2 = new Glass(2, ['red']);
       glass1.pourInto(glass2);
       assert.ok(glass1.equals(expGlass1));
@@ -116,8 +116,8 @@ describe('Glass', () => {
     });
     it('should pour if another glass is not full', () => {
       const glass1 = new Glass(3, ['red', 'blue']);
-      const expGlass1 = new Glass(3, ['red']);
       const glass2 = new Glass(2, ['red']);
+      const expGlass1 = new Glass(3, ['red']);
       const expGlass2 = new Glass(2, ['red', 'blue']);
       glass1.pourInto(glass2);
       assert.ok(glass1.equals(expGlass1));
@@ -125,8 +125,8 @@ describe('Glass', () => {
     });
     it('should not pour if another glass is full', () => {
       const glass1 = new Glass(3, ['red', 'blue']);
-      const expGlass1 = new Glass(3, ['red', 'blue']);
       const glass2 = new Glass(1, ['red']);
+      const expGlass1 = new Glass(3, ['red', 'blue']);
       const expGlass2 = new Glass(1, ['red']);
       glass1.pourInto(glass2);
       assert.ok(glass1.equals(expGlass1));
@@ -135,8 +135,8 @@ describe('Glass', () => {
 
     it('should not pour from empty glass', () => {
       const glass1 = new Glass(1, []);
-      const expGlass1 = new Glass(1, []);
       const glass2 = new Glass(3, ['red']);
+      const expGlass1 = new Glass(1, []);
       const expGlass2 = new Glass(3, ['red']);
       glass1.pourInto(glass2);
       assert.ok(glass1.equals(expGlass1));
